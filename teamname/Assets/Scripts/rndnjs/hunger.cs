@@ -8,20 +8,22 @@ public class hunger : MonoBehaviour
 {
     public Database move;
     float[] arra = new float[5] { 1.1f, 1.2f, 1.3f, 1.4f, 1.5f };
-    int a=0;
+    int a=0;s
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             a++;
+            movespeed(a);
         }
         
         
     }
 
-    public void Start()
+    public void movespeed(int i)
     {
-        move.moveSpeed *= arra[a];
+        move.moveSpeed *= arra[i];
+
     }
 
 }
