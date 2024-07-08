@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class BrainSpin : MonoBehaviour
 {
-    private Skill skillData;
     private Database playerData;
 
     [SerializeField]
@@ -18,8 +17,10 @@ public class BrainSpin : MonoBehaviour
     void LvUP()
     {
         Lv++;
-        playerData.attack *= Rate[Lv];
+        playerData.attack = playerData.ATK*Rate[Lv];
         if (Lv == maxLv)
+        {
             isMaxLv = true;
+        }
     }
 }
