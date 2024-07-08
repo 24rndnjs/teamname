@@ -16,4 +16,4 @@ MonoBehaviour:
   speed: 6
   defense: 6
   hp: 300
-  attack: 0
+  attack: 8
