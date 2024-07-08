@@ -26,12 +26,16 @@ public class SelectSkill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("MousePointer")) ;
-        isTreegerMouse = true;
+        if (collision.gameObject.CompareTag("MousePointer"))
+        {
+            isTreegerMouse = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("MousePointer")) ;
-        isTreegerMouse = false;
+        if (collision.gameObject.CompareTag("MousePointer"))
+        {
+            isTreegerMouse = false;
+        }
     }
 }
