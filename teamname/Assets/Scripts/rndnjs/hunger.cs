@@ -14,11 +14,16 @@ public class hunger : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             a++;
+            movespeed(a);
         }
-        move.moveSpeed *= arra[a];
+        
         
     }
 
-    
-    
+    public void movespeed(int i)
+    {
+        move.moveSpeed *= arra[i];
+
+    }
+
 }
