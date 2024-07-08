@@ -8,7 +8,7 @@ public class hunger : MonoBehaviour
 {
     public Database move;
     float[] arra = new float[5] { 1.1f, 1.2f, 1.3f, 1.4f, 1.5f };
-    int a=0;s
+    int a=0;
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
