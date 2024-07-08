@@ -4,7 +4,7 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LuckyVicky : MonoBehaviour
+public class efficiency : MonoBehaviour
 {
     private Database playerData;
 
@@ -12,7 +12,8 @@ public class LuckyVicky : MonoBehaviour
     int maxLv = 5;
     int Lv = 0;
     bool isMaxLv = false;
-    float[] Rate = new float[5] { 1.05f, 3.15f, 6.3f, 10.5f, 15.75f };
+    float[] Rate = new float[5] { 4.2f, 12.6f, 25.2f, 42f, 63f };
+    float[] Rate2 = new float[5] { 2.1f, 6.3f, 12.6f, 21f, 31.5f };
 
     public void Select()
     {
@@ -22,7 +23,8 @@ public class LuckyVicky : MonoBehaviour
     private void LvUP()
     {
         Lv++;
-        playerData.defense = Rate[Lv];
+        playerData.CritChance = Rate[Lv];
+        playerData.CritDamage = Rate2[Lv];
         if (Lv == maxLv)
         {
             isMaxLv = true;
