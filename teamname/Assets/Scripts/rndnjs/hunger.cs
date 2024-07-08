@@ -15,10 +15,13 @@ public class hunger : MonoBehaviour
         {
             a++;
         }
-        move.moveSpeed *= arra[a];
+        
         
     }
 
-    
-    
+    public void Start()
+    {
+        move.moveSpeed *= arra[a];
+    }
+
 }
