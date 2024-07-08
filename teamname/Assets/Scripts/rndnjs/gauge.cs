@@ -31,7 +31,7 @@ public class gauge : MonoBehaviour
                 }
                 sliderA.value = mana / manamax;
             }
-
+                
         }
     }
     
