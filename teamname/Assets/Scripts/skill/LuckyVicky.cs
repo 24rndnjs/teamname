@@ -11,8 +11,8 @@ public class LuckyVicky : MonoBehaviour
     [SerializeField]
     int maxLv = 5;
     int Lv = 0;
+    float Rate = 0.05f;
     bool isMaxLv = false;
-    float[] Rate = new float[6] { 1, 1.05f, 1.1f, 1.15f, 1.2f, 1.25f };
 
     public void Select()
     {
@@ -22,7 +22,7 @@ public class LuckyVicky : MonoBehaviour
     private void LvUP()
     {
         Lv++;
-        playerData.defense = playerData.DEF * Rate[Lv];
+        playerData.defense += Rate;
         if (Lv == maxLv)
         {
             isMaxLv = true;

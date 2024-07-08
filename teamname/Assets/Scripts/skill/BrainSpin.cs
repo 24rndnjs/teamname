@@ -9,8 +9,8 @@ public class BrainSpin : MonoBehaviour
     [SerializeField]
     int maxLv = 5;
     int Lv = 0;
+    float Rate = 0.1f;
     bool isMaxLv = false;
-    float[] Rate = new float[6] { 1, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f };
 
     public void Select()
     {
@@ -20,7 +20,7 @@ public class BrainSpin : MonoBehaviour
     private void LvUP()
     {
         Lv++;
-        playerData.attack = playerData.ATK*Rate[Lv];
+        playerData.attack += Rate;
         if (Lv == maxLv)
         {
             isMaxLv = true;

@@ -9,13 +9,15 @@ public class Database : ScriptableObject
     public string NAME;
 
     // ±‚∫ª Ω∫≈»
+    public float HP;
     public float ATK;
     public float DEF;
     public float MoveSpeed;
     public float AtkSpeed;
-    
+
     // ∞°∫Ø Ω∫≈»
-    public float attack; // øπΩ√) attack = ATK * Rate
+    public float health;
+    public float attack;
     public float defense;
     public float moveSpeed;
     public float attackSpeed;

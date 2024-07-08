@@ -11,19 +11,17 @@ public class hunger : MonoBehaviour
     [SerializeField]
     int maxLv = 5;
     int Lv = 0;
+    float Rate = 0.1f;
     bool isMaxLv = false;
-    float[] Rate = new float[6] { 1, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f };
-    
+
 
     public void LvUP()
     {
         Lv++;
-        playerData.moveSpeed = playerData.MoveSpeed * Rate[Lv];
+        playerData.moveSpeed += Rate;
         if (Lv == maxLv)
         {
             isMaxLv = true;
         }
-
     }
-
 }
