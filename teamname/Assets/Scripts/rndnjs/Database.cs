@@ -6,17 +6,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerData", menuName = "player Data", order = 51)]
 public class Database : ScriptableObject
 {
-    public string name;
-    public float attack;
+    public string NAME;
+
+    // ±‚∫ª Ω∫≈»
+    public float ATK;
+    public float DEF;
+    public float MoveSpeed;
+    public float AtkSpeed;
+    
+    // ∞°∫Ø Ω∫≈»
+    public float attack; // øπΩ√) attack = ATK * Rate
     public float defense;
-    public float CriticalDamage;
-    public float CriticalChance;
     public float moveSpeed;
-    public float atkSpeed;
+    public float attackSpeed;
+
+    // % Ω∫≈»
     public float Vamp;
+    public float CritDamage;
+    public float CritChance;
     public float DmgMultiplier;
-
-
-
-
 }
