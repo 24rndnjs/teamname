@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SelectSkill : MonoBehaviour
 {
-    public bool isTreegerMouse = false;
     void Start()
     {
 
@@ -12,30 +11,18 @@ public class SelectSkill : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isTreegerMouse)
-        {
+
+    }
+
+    public void ButtonClick()
+    {
             Debug.Log("Clicked Perk");
             OnClickSkillPerk();
-        }
+        
     }
 
     public void OnClickSkillPerk()
     {
         Debug.Log("gogogogogogogogogo");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("MousePointer"))
-        {
-            isTreegerMouse = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("MousePointer"))
-        {
-            isTreegerMouse = false;
-        }
     }
 }
