@@ -29,7 +29,7 @@ public class SelectSkill : MonoBehaviour
 
     void Start()
     {
-        transform.DOLocalMoveY(moveAmount, 0.6f).SetEase(Ease.InQuad).OnComplete(ColorChange);
+        transform.DOLocalMoveY(moveAmount, 0.5f).SetEase(Ease.InQuad).OnComplete(ColorChange);
     }
 
     public void ButtonClick()
