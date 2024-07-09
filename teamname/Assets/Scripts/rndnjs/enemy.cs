@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
@@ -61,5 +62,19 @@ public class enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(space, space, space));
+    }
+    public void Takedamage(int damage)
+    {
+        int actualdamage = Mathf.Max(damage - enemydata.defense, 0);
+        currenthp-=actualdamage;
+        if (currenthp <= 0)
+        {
+            Die();
+        }
+
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

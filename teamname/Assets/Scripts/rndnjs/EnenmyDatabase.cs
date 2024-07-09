@@ -7,7 +7,7 @@ public class EnenmyDatabase : ScriptableObject
 {
     public string name;
     public float speed;
-    public float defense;
+    public int defense;
     public float hp;
 
     public float attack;
