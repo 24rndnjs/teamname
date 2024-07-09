@@ -13,7 +13,7 @@ public class ButtonManager : MonoBehaviour
     private void Awake()
     {
         List<int> chosenIndices = new List<int>(); // 선택된 인덱스를 저장할 리스트
-        int a = 0;
+        int a = 3;
 
         for (int i = 0; i < 3; ++i)
         {
@@ -27,7 +27,7 @@ public class ButtonManager : MonoBehaviour
 
             GameObject btn = Instantiate(Skills[index], new Vector3(0, a, 0), Quaternion.identity);
             btn.transform.SetParent(s.transform);
-            ++a;
+            a -= 3;
         }
     }
 
