@@ -8,6 +8,7 @@ TagManager:
   - MousePointer
   - Area
   - Ground
+  - player
   layers:
   - Default
   - TransparentFX
