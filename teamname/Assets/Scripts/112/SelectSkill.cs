@@ -16,13 +16,13 @@ public class SelectSkill : MonoBehaviour
 
     public void ButtonClick()
     {
-            Debug.Log("Clicked Perk");
+            Debug.Log("Clicked");
             OnClickSkillPerk();
         
     }
 
     public void OnClickSkillPerk()
     {
-        Debug.Log("gogogogogogogogogo");
+        Debug.Log("LVUP");
     }
 }
