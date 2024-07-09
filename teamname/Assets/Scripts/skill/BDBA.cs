@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BDBA : MonoBehaviour
+public class BDBA : Skill
 {
     private Database playerData;
+
 
     public void Select()
     {

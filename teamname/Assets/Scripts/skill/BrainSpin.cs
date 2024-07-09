@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrainSpin : MonoBehaviour
+public class BrainSpin : Skill
 {
     private Database playerData;
 
-    [SerializeField]
-    int maxLv = 5;
-    int Lv = 0;
-    float Rate = 0.1f;
-    bool isMaxLv = false;
 
     public void Select()
     {
@@ -21,9 +16,9 @@ public class BrainSpin : MonoBehaviour
     {
         Lv++;
         playerData.attack += Rate;
-        if (Lv == maxLv)
+        if (Lv == MaxLv)
         {
-            isMaxLv = true;
+            IsMaxLv = true;
         }
     }
 }

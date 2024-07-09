@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Epicurean : MonoBehaviour
+public class Epicurean : Skill
 {
     private Database playerData;
+
 
     public void Select()
     {

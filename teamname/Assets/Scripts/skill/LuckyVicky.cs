@@ -4,15 +4,10 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LuckyVicky : MonoBehaviour
+public class LuckyVicky : Skill
 {
     private Database playerData;
 
-    [SerializeField]
-    int maxLv = 5;
-    int Lv = 0;
-    float Rate = 0.05f;
-    bool isMaxLv = false;
 
     public void Select()
     {
@@ -23,9 +18,9 @@ public class LuckyVicky : MonoBehaviour
     {
         Lv++;
         playerData.defense += Rate;
-        if (Lv == maxLv)
+        if (Lv == MaxLv)
         {
-            isMaxLv = true;
+            IsMaxLv = true;
         }
     }
 }
