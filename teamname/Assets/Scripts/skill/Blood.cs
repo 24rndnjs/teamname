@@ -2,24 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blood : MonoBehaviour
+public class Blood : Skill
 {
     private Database playerData;
 
-    [SerializeField]
-    int maxLv = 5;
-    int Lv = 0;
-    float Rate = 0.2f;
-    bool isMaxLv = false;
 
-
-    public void LvUP()
+    public void Select()
+    {
+        LvUP();
+    }
+    private void LvUP()
     {
         Lv++;
         playerData.health = Rate;
-        if (Lv == maxLv)
+        if (Lv == MaxLv)
         {
-            isMaxLv = true;
+            IsMaxLv = true;
         }
     }
 }

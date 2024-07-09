@@ -4,15 +4,10 @@ using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class efficiency : MonoBehaviour
+public class efficiency : Skill
 {
     private Database playerData;
 
-    [SerializeField]
-    int maxLv = 5;
-    int Lv = 0;
-    float Rate = 0.1f;
-    bool isMaxLv = false;
 
     public void Select()
     {
@@ -24,9 +19,9 @@ public class efficiency : MonoBehaviour
         Lv++;
         playerData.CritChance += Rate * 2;
         playerData.CritDamage += Rate;
-        if (Lv == maxLv)
+        if (Lv == MaxLv)
         {
-            isMaxLv = true;
+            IsMaxLv = true;
         }
     }
 }

@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultiTasking : MonoBehaviour
+public class MultiTasking : Skill
 {
     private Database playerData;
+
 
     public void Select()
     {
