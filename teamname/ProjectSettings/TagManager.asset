@@ -6,6 +6,8 @@ TagManager:
   tags:
   - mana
   - MousePointer
+  - Area
+  - Ground
   layers:
   - Default
   - TransparentFX

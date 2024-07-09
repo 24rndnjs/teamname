@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float speed = 10;
 
+    public Vector2 inputVec;
 
     void Start()
     {
@@ -15,9 +16,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
+        inputVec.x = Input.GetAxisRaw("Horizontal");
+        inputVec.y = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(h * speed * Time.deltaTime, v * speed * Time.deltaTime, 0));
+        transform.Translate(new Vector3(inputVec.x * speed * Time.deltaTime, inputVec.y * speed * Time.deltaTime, 0));
     }
 }
