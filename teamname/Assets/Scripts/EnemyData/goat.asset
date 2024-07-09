@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: goat
   m_EditorClassIdentifier: 
   name: 
-  speed: 0
+  speed: 5
   defense: 0
-  hp: 0
-  attack: 0
+  hp: 5000
+  attack: 30
