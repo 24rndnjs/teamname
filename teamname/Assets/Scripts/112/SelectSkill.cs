@@ -5,40 +5,30 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class SelectSkill : MonoBehaviour
 {
-
+    public Button[] buttons = new Button[3];
     public Button button;
 
     private bool isChoose = false;
 
     public Text text;
 
-    public void ColorChange()
-    {
-        ColorBlock colorBlock = button.colors;
-
-        isChoose = !isChoose; 
-
-        colorBlock.normalColor = isChoose ? Color.white : new Color(0f, 0f, 0f, 0f);
-        colorBlock.selectedColor = isChoose ? Color.white : new Color(0f, 0f, 0f, 0f);
-
-        button.colors = colorBlock;
-    }
-
-
     void Start()
     {
+        button.onClick.AddListener(ButtonClick);
         transform.DOLocalMoveY(90, 0.7f).SetEase(Ease.InQuad).SetRelative();
     }
+    
     public void ButtonClick()
     {
         Debug.Log("Clicked");
         OnClickSkillPerk();
+        //Destroy(button.gameObject); 한번에 버튼 3개 지우기
+
 
     }
-
     public void OnClickSkillPerk()
     {
         Debug.Log("LVUP");
-    }
 
+    }
 }
