@@ -1,19 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 public class SelectSkill : MonoBehaviour
 {
     [SerializeField]
-    public int num;
-    void Start()
+    public int moveAmount;
+
+    public Button button;
+    private bool isChoose = false;
+
+    public void ColorChange()
     {
-        transform.DOLocalMoveY(num, 0.7f).SetEase(Ease.InQuad);
+        ColorBlock colorBlock = button.colors;
+
+        isChoose = !isChoose; 
+
+
+        colorBlock.normalColor = isChoose ? new Color(1f, 1f, 1f, 1f) : Color.white;
+        colorBlock.selectedColor = isChoose ? new Color(1f, 1f, 1f, 1f) : Color.white;
+        
+        button.colors = colorBlock;
     }
 
-    void Update()
+    void Start()
     {
-
+        transform.DOLocalMoveY(moveAmount, 0.6f).SetEase(Ease.InQuad).OnComplete(ColorChange);
     }
 
     public void ButtonClick()
