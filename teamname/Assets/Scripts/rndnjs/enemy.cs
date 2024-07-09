@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
@@ -9,11 +8,12 @@ public class enemy : MonoBehaviour
     public float currenthp;
     public float space;
     public GameObject closestPlayer;
-    private bool isFlipped = false;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         currenthp = enemydata.hp;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -23,22 +23,20 @@ public class enemy : MonoBehaviour
         if (closestPlayer != null)
         {
             Vector3 direction = closestPlayer.transform.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            if (!isFlipped)
+            // 적의 스프라이트를 플레이어 방향에 따라 플립
+            if (direction.x > 0)
             {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                isFlipped = true;
+                spriteRenderer.flipX = true;
+            }
+            else if (direction.x < 0)
+            {
+                spriteRenderer.flipX = false;
             }
 
             transform.position = Vector2.MoveTowards(this.transform.position, closestPlayer.transform.position, enemydata.speed * Time.deltaTime);
 
             float distance = Vector2.Distance(transform.position, closestPlayer.transform.position);
-            if (distance <= space)
-            {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                isFlipped = false;
-            }
         }
     }
 
@@ -63,16 +61,17 @@ public class enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(space, space, space));
     }
+
     public void Takedamage(int damage)
     {
         int actualdamage = Mathf.Max(damage - enemydata.defense, 0);
-        currenthp-=actualdamage;
+        currenthp -= actualdamage;
         if (currenthp <= 0)
         {
             Die();
         }
-
     }
+
     public void Die()
     {
         Destroy(gameObject);
