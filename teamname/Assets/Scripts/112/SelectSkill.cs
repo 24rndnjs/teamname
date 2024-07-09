@@ -9,8 +9,10 @@ public class SelectSkill : MonoBehaviour
     public int moveAmount;
 
     public Button button;
+
     private bool isChoose = false;
 
+    public Text text;
     public void ColorChange()
     {
         ColorBlock colorBlock = button.colors;
@@ -20,7 +22,8 @@ public class SelectSkill : MonoBehaviour
 
         colorBlock.normalColor = isChoose ? new Color(1f, 1f, 1f, 1f) : Color.white;
         colorBlock.selectedColor = isChoose ? new Color(1f, 1f, 1f, 1f) : Color.white;
-        
+
+        text.text = "<color=black>skill</color>";
         button.colors = colorBlock;
     }
 
