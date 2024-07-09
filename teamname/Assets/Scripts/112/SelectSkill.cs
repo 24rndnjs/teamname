@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class SelectSkill : MonoBehaviour
 {
-    [SerializeField]
-    public int moveAmount;
 
     public Button button;
 
@@ -29,9 +27,8 @@ public class SelectSkill : MonoBehaviour
 
     void Start()
     {
-       // transform.DOLocalMoveY(moveAmount, 0.7f).SetEase(Ease.InQuad).OnComplete(ColorChange);
+        transform.DOLocalMoveY(90, 0.7f).SetEase(Ease.InQuad).SetRelative();
     }
-
     public void ButtonClick()
     {
         Debug.Log("Clicked");
@@ -43,4 +40,5 @@ public class SelectSkill : MonoBehaviour
     {
         Debug.Log("LVUP");
     }
+
 }

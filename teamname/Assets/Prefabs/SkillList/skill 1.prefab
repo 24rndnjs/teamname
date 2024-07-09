@@ -215,6 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de6e80713de9ee429b192baddd61c01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAmount: 0
+  moveAmount: 10
   button: {fileID: 7023287713252615196}
   text: {fileID: 5286515390388249212}
