@@ -12,10 +12,13 @@ public class GameDirector : MonoBehaviour
     public float curExp;
     public float nextExp;
 
+    Slider mySlider;
+
     private void Awake()
     {
         Instance = this;
         nextExp = 100f;
+        mySlider = GetComponent<Slider>();
     }
 
     public void GetExp()
@@ -36,21 +39,8 @@ public class GameDirector : MonoBehaviour
         nextExp = Mathf.Floor(nextExp);
     }
 
-    public class GaugeBar : MonoBehaviour
+    void LateUpdate()
     {
-
-        Slider mySlider;
-        private float nextExp;
-        public float curExp;
-
-        void Awake()
-        {
-            mySlider = GetComponent<Slider>();
-        }
-
-        void LateUpdate()
-        {
-            mySlider.value = curExp / nextExp;
-        }
+        mySlider.value = curExp / nextExp;
     }
 }
