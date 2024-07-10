@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class NoteBook : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Database player;
+    public GameObject gameobject;
+    private bool isMoving = false;
+    private bool isAttacking = false;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // 이동 감지
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
+
+
+
+        if (isMoving == false)
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        player.ATK *= 1.25f; // 치명타 확률 30% 증가
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("player"))
+        {
+            Destroy(gameobject);
+        }
     }
 }
