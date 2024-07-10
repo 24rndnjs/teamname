@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2670916573011292529}
   - component: {fileID: 2670916573011292533}
   - component: {fileID: 2670916573011292532}
-  - component: {fileID: -711934372755989560}
+  - component: {fileID: -629610959227391455}
   m_Layer: 0
   m_Name: NeonStick_Ground(Sample)
   m_TagString: Untagged
@@ -124,7 +124,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.99999994, y: 2}
   m_Direction: 0
---- !u!114 &-711934372755989560
+--- !u!114 &-629610959227391455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2670916573011292528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bad1f490b6e67c4b8b9a4bf73f11953, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c508e98389763e44bbab23ac113b24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroySecond: 3
