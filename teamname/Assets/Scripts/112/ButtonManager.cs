@@ -30,5 +30,6 @@ public class ButtonManager : MonoBehaviour
             btn.transform.SetParent(s.transform);
             a -= 3;
         }
+        Button[] chooicebuttons= s.transform.GetComponents<Button>();
     }
 }

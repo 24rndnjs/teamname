@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uACE0\uB3C5\uD55C \uBBF8\uC2DD\uAC00"
+  m_Text: "\uB7EC\uD504 \uC791\uD654"
 --- !u!1 &8139645303136440026
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7023287713252615196}
   - component: {fileID: 8436199233319451862}
   m_Layer: 5
-  m_Name: skill 10
+  m_Name: skill 21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

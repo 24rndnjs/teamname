@@ -6,10 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Oakleysunglasses : MonoBehaviour
 {
-    [SerializeField]
-    Text timetext;
-
-    [SerializeField]
     private float maxtime = 10.0f;
 
     float time;
@@ -27,20 +23,17 @@ public class Oakleysunglasses : MonoBehaviour
         while (time > 0.1f)
         {
             time -= 0.1f;
-            timetext.text = time.ToString("0.0");
             yield return new WaitForSeconds(0.1f);
         }
-        timetext.text = "skill";
         time = maxtime;
         isplay = false;
     }
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        
+        if (isplay == false)
+        {
+            Debug.Log("skill");
+            StartTimer();
+        }
     }
 }
