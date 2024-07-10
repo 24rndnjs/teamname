@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/MainScene.unity
     guid: 63e09908120323a4e8a8e42a37f4416c
+  - enabled: 1
+    path: Assets/Scenes/GameScene/1stage.unity
+    guid: dd05d96b8c565fd41bd7d53bf277a0bf
+  - enabled: 1
+    path: Assets/Scenes/GameScene/2stage.unity
+    guid: 19f582ba8f6520b46aebaef50b51602f
+  - enabled: 1
+    path: Assets/Scenes/GameScene/3stage.unity
+    guid: a864ecac92fac34468237b69cf46e1c3
+  - enabled: 1
+    path: Assets/Scenes/GameScene/4stage.unity
+    guid: 5bcf094c5fda1d443a57bfe9400ad27e
+  - enabled: 1
+    path: Assets/Scenes/GameScene/stageselect.unity
+    guid: 4ad2aa55913c78b42a8f44e419a06d1e
   m_configObjects: {}
