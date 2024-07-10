@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,13 @@ public class enemy : MonoBehaviour
     public float space;
     public GameObject closestPlayer;
     private SpriteRenderer spriteRenderer;
+    public Database player;
 
     void Start()
     {
         currenthp = enemydata.hp;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player.HP = player.health;
     }
 
     void Update()
@@ -24,7 +27,7 @@ public class enemy : MonoBehaviour
         {
             Vector3 direction = closestPlayer.transform.position - transform.position;
 
-            // 적의 스프라이트를 플레이어 방향에 따라 플립
+            
             if (direction.x > 0)
             {
                 spriteRenderer.flipX = true;
@@ -37,6 +40,10 @@ public class enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(this.transform.position, closestPlayer.transform.position, enemydata.speed * Time.deltaTime);
 
             float distance = Vector2.Distance(transform.position, closestPlayer.transform.position);
+            if(enemydata.hp<=0)
+            {
+                Die();
+            }
         }
     }
 
@@ -76,4 +83,13 @@ public class enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+     public void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("player"))
+            {
+            player.health -= (enemydata.attack-player.DEF);
+            }
+        }
+
+    
 }
