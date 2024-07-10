@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_GoatPAGE2 : MonoBehaviour
+public class Boss4 : MonoBehaviour
 {
     [SerializeField]
     float health = 100;
@@ -11,11 +11,11 @@ public class Boss_GoatPAGE2 : MonoBehaviour
     [SerializeField]
     float attack = 10;
 
-    public GameObject neonStick;
-    public GameObject neonStick_Ground;
+    public GameObject paper;
     public GameObject spawnRange;
     public Transform playerPos;
-    //public Database player;
+    public Database player;
+
 
     private int patternNum;
     private bool immortal = false;
@@ -31,6 +31,7 @@ public class Boss_GoatPAGE2 : MonoBehaviour
 
         StartCoroutine(Pattern());
     }
+
     IEnumerator Pattern()
     {
         while (true)
@@ -56,40 +57,21 @@ public class Boss_GoatPAGE2 : MonoBehaviour
             patternNum %= 3;
         }
     }
-
-    void TakeDamage()
-    {
-        StartCoroutine(DOTDMG());
-
-        IEnumerator DOTDMG()
-        {
-            for (float i = 0; i < 10; i += 0.1f)
-            {
-                health -= 0.2f;
-                yield return new WaitForSeconds(0.1f);
-            }
-            yield break;
-        }
-    }
     void Pattern1()
     {
-        StartCoroutine(Swing());
+        StartCoroutine(IMMORTAL());
 
-        IEnumerator Swing()
+        IEnumerator IMMORTAL()
         {
-            Vector2 velocity = playerPos.transform.position - rigid.transform.position;
-            rigid.velocity = velocity.normalized * moveSpeed;
-
-            yield return new WaitForSeconds(0.025f);
-
-            rigid.velocity = new Vector2(0, 0);
-
+            immortal = true;
+            yield return new WaitForSeconds(3f);
+            immortal = false;
             yield break;
         }
     }
     void Pattern2()
     {
-        Instantiate(neonStick);
+
     }
     void Pattern3()
     {
@@ -97,21 +79,20 @@ public class Boss_GoatPAGE2 : MonoBehaviour
 
         IEnumerator Summon()
         {
-            for(int i = 0; i < 15; ++i)
+
+            for(int i = 0; i < 3; ++i)
             {
-                Instantiate(neonStick_Ground, RandomPos(), Quaternion.identity);
-                yield return new WaitForSeconds(0.05f);
+                Transform myPos = this.transform;
+                Instantiate(paper, new Vector3(myPos.position.x + 0.1f, myPos.position.y - 0.1f, 0), Quaternion.identity);
+                Instantiate(paper, new Vector3(myPos.position.x + 0.2f, myPos.position.y, 0), Quaternion.identity);
+                Instantiate(paper, new Vector3(myPos.position.x - 0.1f, myPos.position.y - 0.1f, 0), Quaternion.identity);
+                Instantiate(paper, new Vector3(myPos.position.x - 0.2f, myPos.position.y, 0), Quaternion.identity);
+                Instantiate(paper, new Vector3(myPos.position.x, myPos.position.y - 0.2f, 0), Quaternion.identity);
+
+                yield return new WaitForSeconds(0.25f);
             }
 
             yield break;
         }
-    }
-
-    Vector3 RandomPos()
-    {
-        Vector3 originPosition = spawnRange.transform.position;
-        float ranX = Random.Range(-range.bounds.size.x / 2, range.bounds.size.x / 2);
-        float ranY = Random.Range(-range.bounds.size.y / 2, range.bounds.size.y / 2);
-        return originPosition + new Vector3(ranX, ranY, 0);
     }
 }

@@ -11,16 +11,11 @@ public class Boss1 : MonoBehaviour
     [SerializeField]
     private float attack = 10;
 
-    [SerializeField]
-    private GameObject stone;
-    [SerializeField]
-    private GameObject student;
-    [SerializeField]
-    private GameObject rock;
-    [SerializeField]
-    private GameObject run;
-    [SerializeField]
-    private GameObject spawnRange;
+    public GameObject stone;
+    public GameObject student;
+    public GameObject rock;
+    public GameObject run;
+    public GameObject spawnRange;
 
     private Database player;
     private BoxCollider2D range;
@@ -28,7 +23,6 @@ public class Boss1 : MonoBehaviour
 
     void Start()
     {
-        player.MoveSpeed = moveSpeed;
         patternNum = 0;
         range = spawnRange.GetComponent<BoxCollider2D>();
         StartCoroutine(Pattern());
@@ -47,10 +41,12 @@ public class Boss1 : MonoBehaviour
             switch (patternNum)
             {
                 case 0:
-                    StartCoroutine(Pattern1());
+                    Pattern1();
+                    patternNum++;
                     break;
                 case 1:
                     Pattern2();
+                    patternNum++;
                     break;
                 default:
                     break;
@@ -60,13 +56,26 @@ public class Boss1 : MonoBehaviour
         }
     }
 
-    IEnumerator Pattern1()
+    void Pattern1()
     {
-        player.MoveSpeed *= 10;
-        yield return new WaitForSeconds(5f);
-        player.MoveSpeed = moveSpeed; // 원래 속도로 복구
+        StartCoroutine(SPEED());
     }
+    IEnumerator SPEED()
+    {
+        Debug.Log("SPEEEEEEED");
 
+        player.moveSpeed += 10f;
+
+        yield return new WaitForSeconds(3f);
+
+        for (int i = 0; i < 25; ++i)
+        {
+            player.moveSpeed -= 0.4f;
+            yield return new WaitForSeconds(0.25f);
+        }
+
+        yield break;
+    }
     void Pattern2()
     {
         Instantiate(rock, RandomPos(), Quaternion.identity);

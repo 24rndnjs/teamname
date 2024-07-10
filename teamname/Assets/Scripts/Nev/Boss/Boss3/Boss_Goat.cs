@@ -13,7 +13,7 @@ public class Boss_Goat : MonoBehaviour
 
     public GameObject spawnRange;
     public Transform playerPos;
-    //public Database player;
+    public Database player;
 
     private int patternNum;
     private bool immortal = false;
@@ -23,7 +23,6 @@ public class Boss_Goat : MonoBehaviour
     void Start()
     {
         patternNum = 0;
-        //player.MoveSpeed = moveSpeed;
         range = spawnRange.GetComponent<BoxCollider2D>();
         rigid = GetComponent<Rigidbody2D>();
 
@@ -66,13 +65,13 @@ public class Boss_Goat : MonoBehaviour
     {
         Debug.Log("Slow");
 
-        //player.moveSpeed -= 0.25f;
+        player.moveSpeed -= 0.25f;
 
-        //for (int i = 0; i < 25; ++i)
-        //{
-        //    player.moveSpeed += 0.1f;
-        //    yield return new WaitForSeconds(0.25f);
-        //}
+        for (int i = 0; i < 25; ++i)
+        {
+            player.moveSpeed += 0.1f;
+            yield return new WaitForSeconds(0.25f);
+        }
 
         yield break;
     }

@@ -89,15 +89,8 @@ public class Boss2 : MonoBehaviour
     Vector3 RandomPos()
     {
         Vector3 originPosition = spawnRange.transform.position;
-
-        float ranX = range.bounds.size.x;
-        float ranY = range.bounds.size.y;
-
-        ranX = Random.Range((ranX / 2) * -1, ranX / 2);
-        ranY = Random.Range((ranY / 2) * -1, ranY / 2);
-        Vector3 RandomPostion = new Vector3(ranX, ranY, 0); 
-
-        Vector3 respawnPosition = originPosition + RandomPostion;
-        return respawnPosition;
+        float ranX = Random.Range(-range.bounds.size.x / 2, range.bounds.size.x / 2);
+        float ranY = Random.Range(-range.bounds.size.y / 2, range.bounds.size.y / 2);
+        return originPosition + new Vector3(ranX, ranY, 0);
     }
 }
