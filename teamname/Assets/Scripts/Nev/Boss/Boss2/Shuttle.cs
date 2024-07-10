@@ -8,7 +8,7 @@ public class Shuttle : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed = 8;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class Shuttle : MonoBehaviour
     IEnumerator Pattern()
     {
         Vector2 velocity = player.transform.position - rigid.transform.position;
-        rigid.velocity = velocity.normalized * 8;
+        rigid.velocity = velocity.normalized * moveSpeed;
         rigid.transform.LookAt2D((rigid.transform.position + (Vector3)velocity) * -1);
         yield break;
     }
