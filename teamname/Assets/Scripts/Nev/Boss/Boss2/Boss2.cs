@@ -11,16 +11,13 @@ public class Boss2 : MonoBehaviour
     [SerializeField]
     float attack = 10;
 
-    [SerializeField]
-    private GameObject shuttle;
-    [SerializeField]
-    private GameObject basketball;
-    [SerializeField]
-    private GameObject student;
-
-    int patternNum;
+    public GameObject shuttle;
+    public GameObject basketball;
+    public GameObject student;
     public GameObject spawnRange;
-    BoxCollider2D range;
+
+    private int patternNum;
+    private BoxCollider2D range;
 
     void Start()
     {
