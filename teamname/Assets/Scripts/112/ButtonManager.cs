@@ -9,35 +9,64 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject[] Skills; // 스킬 프리팹 배열: 게임 오브젝트로 저장되어, 이들 중에서 인스턴스를 생성합니다.
     public GameObject canvas; // 캔버스 선택: 버튼을 배치할 캔버스 게임 오브젝트.
+    bool respon=false;//X
 
     public int[] buttoncount = new int[21] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; // 버튼 클릭 횟수를 추적하는 배열.
 
-    private void Awake()
+    //private void Awake()
+    //{
+    //    List<int> chosenIndices = new List<int>(); // 선택된 인덱스를 저장할 리스트.
+    //    int a = 1; // 버튼을 배치할 때 사용할 y 축 좌표.
+
+    //    // 세 개의 버튼을 생성하기 위한 루프.
+    //    for (int i = 0; i < 3; ++i)
+    //    {
+    //        int index;
+    //        do
+    //        {
+    //            index = Random.Range(0, Skills.Length); // Skills 배열에서 랜덤 인덱스 선택.
+    //        }
+    //        while (chosenIndices.Contains(index)); // 이미 선택된 인덱스는 제외하고 새로운 인덱스를 선택.
+
+    //        chosenIndices.Add(index); // 새로 선택된 인덱스를 리스트에 추가.
+
+    //        GameObject btn = Instantiate(Skills[index], new Vector3(0, a, 0), Quaternion.identity); // 선택된 스킬 프리팹을 인스턴스화.
+    //        btn.transform.SetParent(canvas.transform); // 생성된 버튼을 캔버스의 자식으로 설정.
+    //        btn.transform.DOLocalMoveY(90, 0.7f).SetEase(Ease.InQuad).SetRelative(); // 버튼에 위치 애니메이션 적용.
+    //        int buttonindex = index; // 클릭 리스너에 사용할 인덱스 변수 저장.
+    //        btn.GetComponent<Button>().onClick.AddListener(() => ButtonClick(buttonindex)); // 클릭 리스너 추가.
+    //        a -= 3; // 다음 버튼의 y 축 위치 조정.
+    //    }
+    //}
+    private void Update()
     {
-        List<int> chosenIndices = new List<int>(); // 선택된 인덱스를 저장할 리스트.
-        int a = 1; // 버튼을 배치할 때 사용할 y 축 좌표.
-
-        // 세 개의 버튼을 생성하기 위한 루프.
-        for (int i = 0; i < 3; ++i)
+        if (respon == false)
         {
-            int index;
-            do
+            respon = true;
+            List<int> chosenIndices = new List<int>(); // 선택된 인덱스를 저장할 리스트.
+            int a = 1; // 버튼을 배치할 때 사용할 y 축 좌표.
+
+            // 세 개의 버튼을 생성하기 위한 루프.
+            for (int i = 0; i < 3; ++i)
             {
-                index = Random.Range(0, Skills.Length); // Skills 배열에서 랜덤 인덱스 선택.
+                int index;
+                do
+                {
+                    index = Random.Range(0, Skills.Length); // Skills 배열에서 랜덤 인덱스 선택.
+                }
+                while (chosenIndices.Contains(index)); // 이미 선택된 인덱스는 제외하고 새로운 인덱스를 선택.
+
+                chosenIndices.Add(index); // 새로 선택된 인덱스를 리스트에 추가.
+
+                GameObject btn = Instantiate(Skills[index], new Vector3(0, a, 0), Quaternion.identity); // 선택된 스킬 프리팹을 인스턴스화.
+                btn.transform.SetParent(canvas.transform); // 생성된 버튼을 캔버스의 자식으로 설정.
+                btn.transform.DOLocalMoveY(90, 0.7f).SetEase(Ease.InQuad).SetRelative(); // 버튼에 위치 애니메이션 적용.
+                int buttonindex = index; // 클릭 리스너에 사용할 인덱스 변수 저장.
+                btn.GetComponent<Button>().onClick.AddListener(() => ButtonClick(buttonindex)); // 클릭 리스너 추가.
+                a -= 3; // 다음 버튼의 y 축 위치 조정.
             }
-            while (chosenIndices.Contains(index)); // 이미 선택된 인덱스는 제외하고 새로운 인덱스를 선택.
-
-            chosenIndices.Add(index); // 새로 선택된 인덱스를 리스트에 추가.
-
-            GameObject btn = Instantiate(Skills[index], new Vector3(0, a, 0), Quaternion.identity); // 선택된 스킬 프리팹을 인스턴스화.
-            btn.transform.SetParent(canvas.transform); // 생성된 버튼을 캔버스의 자식으로 설정.
-            btn.transform.DOLocalMoveY(90, 0.7f).SetEase(Ease.InQuad).SetRelative(); // 버튼에 위치 애니메이션 적용.
-            int buttonindex = index; // 클릭 리스너에 사용할 인덱스 변수 저장.
-            btn.GetComponent<Button>().onClick.AddListener(() => ButtonClick(buttonindex)); // 클릭 리스너 추가.
-            a -= 3; // 다음 버튼의 y 축 위치 조정.
         }
     }
-
     public void ButtonClick(int buttonindex)
     {
         Debug.Log("Clicked"); // 클릭 로그 출력.
@@ -49,6 +78,7 @@ public class ButtonManager : MonoBehaviour
         {
             Destroy(chooicebuttons[i].gameObject); // 모든 버튼 제거.
         }
+        respon = false;
     }
 
     public void OnClickSkillPerk()
