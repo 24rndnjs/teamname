@@ -19,10 +19,13 @@ public class Boss2 : MonoBehaviour
     private GameObject student;
 
     int patternNum;
+    public GameObject spawnRange;
+    BoxCollider2D range;
 
     void Start()
     {
         patternNum = 0;
+        range = spawnRange.GetComponent<BoxCollider2D>();
         StartCoroutine(Pattern());
     }
     void Update()
@@ -78,8 +81,8 @@ public class Boss2 : MonoBehaviour
     }
     void Pattern2()
     {
-        Instantiate(basketball, new Vector3(1, 0, 0), Quaternion.identity);
-        Instantiate(basketball, new Vector3(-1, 0, 0), Quaternion.identity);
+        Instantiate(basketball, RandomPos(), Quaternion.identity);
+        Instantiate(basketball, RandomPos(), Quaternion.identity);
     }
     void Pattern3()
     {
@@ -88,5 +91,20 @@ public class Boss2 : MonoBehaviour
     void Pattern4()
     {
         Instantiate(student);
+    }
+
+    Vector3 RandomPos()
+    {
+        Vector3 originPosition = spawnRange.transform.position;
+
+        float ranX = range.bounds.size.x;
+        float ranY = range.bounds.size.y;
+
+        ranX = Random.Range((ranX / 2) * -1, ranX / 2);
+        ranY = Random.Range((ranY / 2) * -1, ranY / 2);
+        Vector3 RandomPostion = new Vector3(ranX, ranY, 0);
+
+        Vector3 respawnPosition = originPosition + RandomPostion;
+        return respawnPosition;
     }
 }
