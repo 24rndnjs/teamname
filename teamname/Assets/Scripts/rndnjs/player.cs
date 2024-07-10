@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public float speed = 5.0f; // 플레이어 이동 속도
-    public Database playera;
-    // Start is called before the first frame update
+    [SerializeField]
+    float speed = 10;
+
+    public Vector2 inputVec;
+    Animator animator;
+
     void Start()
     {
-        float currentHp = playera.HP;
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Horizontal axis 입력 값 가져오기
-        float move = Input.GetAxis("Horizontal");
+        inputVec.x = Input.GetAxisRaw("Horizontal");
+        inputVec.y = Input.GetAxisRaw("Vertical");
 
-        // 플레이어 위치 업데이트
-        transform.position += new Vector3(move * speed * Time.deltaTime, 0, 0);
+        transform.Translate(new Vector3(inputVec.x * speed * Time.deltaTime, inputVec.y * speed * Time.deltaTime, 0));
     }
 }
