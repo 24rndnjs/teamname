@@ -47348,7 +47348,7 @@ GameObject:
   - component: {fileID: 1373231383}
   - component: {fileID: 1373231382}
   m_Layer: 0
-  m_Name: GOAT
+  m_Name: "\uC6B0\uC900\uC324"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47759,7 +47759,8 @@ MonoBehaviour:
   moveSpeed: 10
   attack: 10
   neonStick: {fileID: 2670916573011292528, guid: c511e386864c2b34b8141344f39a99f2, type: 3}
-  spawnRange: {fileID: 1493259192}
+  neonStick_Ground: {fileID: 2670916573011292528, guid: c8edf9410a958764b941da755a512064, type: 3}
+  spawnRange: {fileID: 521594175}
   playerPos: {fileID: 1341883814}
 --- !u!1 &1516010774
 GameObject:
