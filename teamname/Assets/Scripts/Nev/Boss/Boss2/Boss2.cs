@@ -90,7 +90,7 @@ public class Boss2 : MonoBehaviour
     }
     void Pattern4()
     {
-        Instantiate(student);
+        Instantiate(student);   
     }
 
     Vector3 RandomPos()
@@ -102,7 +102,7 @@ public class Boss2 : MonoBehaviour
 
         ranX = Random.Range((ranX / 2) * -1, ranX / 2);
         ranY = Random.Range((ranY / 2) * -1, ranY / 2);
-        Vector3 RandomPostion = new Vector3(ranX, ranY, 0);
+        Vector3 RandomPostion = new Vector3(ranX, ranY, 0); 
 
         Vector3 respawnPosition = originPosition + RandomPostion;
         return respawnPosition;
