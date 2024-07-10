@@ -12,6 +12,7 @@ public class Boss_GoatPAGE2 : MonoBehaviour
     float attack = 10;
 
     public GameObject neonStick;
+    public GameObject neonStick_Ground;
     public GameObject spawnRange;
     public Transform playerPos;
     //public Database player;
@@ -89,10 +90,36 @@ public class Boss_GoatPAGE2 : MonoBehaviour
     }
     void Pattern2()
     {
-
+        Instantiate(neonStick);
     }
     void Pattern3()
     {
+        StartCoroutine(Summon());
 
+        IEnumerator Summon()
+        {
+            for(int i = 0; i < 15; ++i)
+            {
+                Instantiate(neonStick_Ground, RandomPos(), Quaternion.identity);
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            yield break;
+        }
+    }
+
+    Vector3 RandomPos()
+    {
+        Vector3 originPosition = spawnRange.transform.position;
+
+        float ranX = range.bounds.size.x;
+        float ranY = range.bounds.size.y;
+
+        ranX = Random.Range((ranX / 2) * -1, ranX / 2);
+        ranY = Random.Range((ranY / 2) * -1, ranY / 2);
+        Vector3 RandomPostion = new Vector3(ranX, ranY, 0);
+
+        Vector3 respawnPosition = originPosition + RandomPostion;
+        return respawnPosition;
     }
 }
