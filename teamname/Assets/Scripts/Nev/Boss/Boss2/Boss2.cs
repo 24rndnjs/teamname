@@ -28,11 +28,6 @@ public class Boss2 : MonoBehaviour
         range = spawnRange.GetComponent<BoxCollider2D>();
         StartCoroutine(Pattern());
     }
-    void Update()
-    {
-        patternNum %= 4;
-    }
-
     IEnumerator Pattern()
     {
         while(true)
@@ -59,6 +54,7 @@ public class Boss2 : MonoBehaviour
                     break;
             }
             yield return new WaitForSeconds(2);
+            patternNum %= 4;
         }
     }
 

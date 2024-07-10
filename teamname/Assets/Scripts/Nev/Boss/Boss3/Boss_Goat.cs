@@ -11,22 +11,22 @@ public class Boss_Goat : MonoBehaviour
     [SerializeField]
     float attack = 10;
 
-    public GameObject game;
     int patternNum;
+    bool immortal = false;
     public GameObject spawnRange;
     BoxCollider2D range;
-    public Database player;
+    //public Database player;
+    public Transform playerPos;
+    private Rigidbody2D rigid;
 
     void Start()
     {
         patternNum = 0;
-        player.MoveSpeed = moveSpeed;
+        //player.MoveSpeed = moveSpeed;
         range = spawnRange.GetComponent<BoxCollider2D>();
+        rigid = GetComponent<Rigidbody2D>();
+
         StartCoroutine(Pattern());
-    }
-    void Update()
-    {
-        patternNum %= 4;
     }
     IEnumerator Pattern()
     {
@@ -43,8 +43,7 @@ public class Boss_Goat : MonoBehaviour
                     patternNum++;
                     break;
                 case 2:
-                    if (moveSpeed < 11)
-                        Pattern3();
+                    Pattern3();
                     patternNum++;
                     break;
                 case 3:
@@ -55,32 +54,82 @@ public class Boss_Goat : MonoBehaviour
                     break;
             }
             yield return new WaitForSeconds(2);
+            patternNum %= 4;
         }
-    }   
+    }
     void Pattern1()
     {
-        StartCoroutine(slow());
+        StartCoroutine(Slow());
+    }
+    IEnumerator Slow()
+    {
+        Debug.Log("Slow");
 
-        IEnumerator slow()
-        {
+        //player.moveSpeed -= 0.25f;
 
-            player.moveSpeed *= 0.75f;
+        //for (int i = 0; i < 25; ++i)
+        //{
+        //    player.moveSpeed += 0.1f;
+        //    yield return new WaitForSeconds(0.25f);
+        //}
 
-                yield return new WaitForSeconds(0.5f);
-            
-        }
-
+        yield break;
     }
     void Pattern2()
     {
+        StartCoroutine(Joint());
 
+        IEnumerator Joint()
+        {
+            Vector2 velocity = playerPos.transform.position - rigid.transform.position;
+            rigid.velocity = velocity.normalized * moveSpeed;
+
+            yield return new WaitForSeconds(0.025f);
+
+            rigid.velocity = new Vector2(0, 0);
+
+            yield break;
+        }
     }
     void Pattern3()
     {
+        StartCoroutine(Dash());
+
+        IEnumerator Dash()
+        {
+            for(int i = 0; i < 3; ++i)
+            {
+                Vector2 velocity = playerPos.transform.position - rigid.transform.position;
+                rigid.velocity = velocity.normalized * moveSpeed;
+
+                yield return new WaitForSeconds(0.5f);
+            }
+            rigid.velocity = new Vector2(0, 0);
+            yield break;
+        }
 
     }
     void Pattern4()
     {
+        StartCoroutine(IMMORTAL());
 
+        IEnumerator IMMORTAL()
+        {
+            immortal = true;
+            yield return new WaitForSeconds(10f);
+            immortal = false;
+            yield break;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (patternNum == 1)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                StartCoroutine(Slow());
+            }
+        }
     }
 }
