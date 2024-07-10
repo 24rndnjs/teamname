@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameracontrooler : MonoBehaviour
+public class areacontrooler : MonoBehaviour
 {
     public float cameraSpeed = 5.0f;
 

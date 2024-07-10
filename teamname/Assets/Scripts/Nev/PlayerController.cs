@@ -12,22 +12,17 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    public EnenmyDatabase enenmy;
-    public int health = 100;
+    public Slider healthSlider;
+    public float curHealth = 100; //* 현재 체력
+    public float maxHealth; //* 최대 체력
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // 충돌한 객체가 'Enemy' 태그를 가지고 있는지 확인
-        if (collision.gameObject.CompareTag("enemy"))
-        {
-            
-        }
-    }
     void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        maxHealth = curHealth;
+        healthSlider.maxValue = maxHealth; // 슬라이더 최대값 설정
+        healthSlider.value = curHealth;//초기 체력 슬라이더에 반영
         if (animator == null)
         {
             Debug.LogWarning("Animator component is missing from the Player game object.");
@@ -66,4 +61,22 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // 충돌한 객체가 'Enemy' 태그를 가지고 있는지 확인
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log(other.gameObject.name);
+            float damage = other.gameObject.GetComponent<enemy>().enemydata.attack;
+
+            curHealth -= damage;
+            healthSlider.value = curHealth;
+
+            if (curHealth <= 0)
+            {
+                Debug.Log("Player died.");
+            }
+        }
+    }
+
 }
