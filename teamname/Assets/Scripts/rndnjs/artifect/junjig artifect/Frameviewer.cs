@@ -7,6 +7,7 @@ public class Frameviewer : MonoBehaviour
     public Database player;
     public GameObject game;
     private int enemyCount = 0; // 적의 수를 저장하는 변수
+    public junjigdatabase junjig;
 
     void Start()
     {
@@ -20,9 +21,10 @@ public class Frameviewer : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             IncreaseAttackSpeed();
+            junjig.ani += 1;
             Invoke("ResetAttackSpeed", 3f); // 3초 후에 공격 속도를 원래대로 복구
             Destroy(game); // 효과 적용 후 오브젝트 파괴
         }

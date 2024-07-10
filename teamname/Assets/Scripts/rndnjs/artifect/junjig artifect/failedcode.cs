@@ -6,7 +6,7 @@ public class failedcode : MonoBehaviour
 {
     public Database player; // 플레이어 데이터베이스
     public GameObject game; // 현재 오브젝트
-
+    public junjigdatabase junjig;
     private float originalAttack; // 원래 공격력 저장
 
     void Start()
@@ -18,8 +18,9 @@ public class failedcode : MonoBehaviour
     // 트리거 충돌 처리 메서드
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player"))
         {
+            junjig.game += 1;
             // 공격력 랜덤 증가 (1% ~ 99%)
             float randomIncreasePercentage = Random.Range(0.01f, 0.99f);
             player.attack = originalAttack * (1 + randomIncreasePercentage);

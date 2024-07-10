@@ -8,6 +8,8 @@ public class slate : MonoBehaviour
     public GameObject game;
     public AudioClip tickSound; // 딱 소리 나는 효과음
     private AudioSource audioSource;
+    public junjigdatabase junjig;
+    private bool isTriggered = false; // 충돌 처리 플래그
 
     void Start()
     {
@@ -59,9 +61,23 @@ public class slate : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !isTriggered)
         {
-            Destroy(game);
+            isTriggered = true; // 플래그 설정
+            junjig.film += 1;
+            StartCoroutine(PlaySoundAndDestroy());
         }
+    }
+
+    IEnumerator PlaySoundAndDestroy()
+    {
+        // 오디오 재생
+        audioSource.Play();
+
+        // 오디오 클립 길이만큼 대기
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        // 오브젝트 파괴
+        Destroy(game);
     }
 }

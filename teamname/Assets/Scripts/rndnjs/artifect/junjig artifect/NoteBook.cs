@@ -8,6 +8,7 @@ public class NoteBook : MonoBehaviour
     public GameObject gameobject;
     private bool isMoving = false;
     private bool isAttacking = false;
+    public junjigdatabase junjig;
 
     void Update()
     {
@@ -36,8 +37,12 @@ public class NoteBook : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
+            junjig.ani += 1;
+            junjig.game += 1;
+            junjig.comic += 1;
+            junjig.film += 1;
             Destroy(gameobject);
         }
     }
