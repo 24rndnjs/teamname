@@ -32,7 +32,7 @@ public class NoteBook : MonoBehaviour
 
     void Attack()
     {
-        player.ATK *= 1.25f; // 치명타 확률 30% 증가
+        player.ATK *= 1.25f; 
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
