@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: gym
   m_EditorClassIdentifier: 
   name: 
-  speed: 12
+  speed: 2
   defense: 3
   hp: 170
   attack: 12

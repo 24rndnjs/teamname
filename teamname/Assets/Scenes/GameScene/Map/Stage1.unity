@@ -4486,7 +4486,7 @@ GameObject:
   - component: {fileID: 417433064}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8951,7 +8951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af47c9a1ad7afe945ba8ab321604615d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 417433058}
   monsters:
   - {fileID: 4809623220317194287, guid: 989ffce7fda06244f8d4920ef8049e7b, type: 3}
   - {fileID: 4497420051774260176, guid: 2ccd72e80a0daf14f9bef64e23732e3f, type: 3}
@@ -8960,8 +8960,8 @@ MonoBehaviour:
   - {fileID: 5599193485948365311, guid: 9c3f908a464acb44a9e0a423eff2f397, type: 3}
   - {fileID: 2640936289936872706, guid: 6e35c8ca034fb6247b001ed25a07e3b3, type: 3}
   - {fileID: 8105417952411051466, guid: cf5fdfb6623b4f2459cb966f10b4481f, type: 3}
-  spawnRadiusX: 50
-  spawnRadiusY: 50
+  spawnRadiusX: 45
+  spawnRadiusY: 45
   spawnInterval: 5
 --- !u!4 &1043557002
 Transform:

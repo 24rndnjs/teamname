@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: barrier
   m_EditorClassIdentifier: 
   name: 
-  speed: 6
+  speed: 4
   defense: 6
   hp: 300
   attack: 8

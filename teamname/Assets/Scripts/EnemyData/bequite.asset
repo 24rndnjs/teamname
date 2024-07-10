@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bequite
   m_EditorClassIdentifier: 
   name: ' '
-  speed: 8
+  speed: 6
   defense: 7
   hp: 250
   attack: 17

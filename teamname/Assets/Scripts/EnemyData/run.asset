@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: run
   m_EditorClassIdentifier: 
   name: 
-  speed: 13
+  speed: 6
   defense: 0
   hp: 70
   attack: 16

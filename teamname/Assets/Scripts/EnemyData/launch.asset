@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: launch
   m_EditorClassIdentifier: 
   name: 
-  speed: 7
+  speed: 5
   defense: 2
   hp: 200
   attack: 14
