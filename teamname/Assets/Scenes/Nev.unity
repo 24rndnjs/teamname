@@ -42885,7 +42885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 283a5d7a9bb5cf54792595be9a08b42d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 4
   inputVec: {x: 0, y: 0}
 --- !u!70 &1341883816
 CapsuleCollider2D:
@@ -42901,7 +42901,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.7}
+  m_Size: {x: 0.35, y: 0.75}
   m_Direction: 0
 --- !u!50 &1341883817
 Rigidbody2D:
@@ -47210,7 +47210,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
