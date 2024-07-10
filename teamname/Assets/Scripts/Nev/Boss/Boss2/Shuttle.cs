@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Shuttle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody2D rigid;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private float moveSpeed;
+
+    private void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+    }
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+        StartCoroutine(Pattern());
+    }   
+    IEnumerator Pattern()
     {
-        
+        Vector2 velocity = player.transform.position - rigid.transform.position;
+        rigid.velocity = velocity.normalized * 8;
+        rigid.transform.LookAt2D((rigid.transform.position + (Vector3)velocity) * -1);
+        yield break;
     }
 }
