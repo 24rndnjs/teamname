@@ -9,6 +9,7 @@ TagManager:
   - Area
   - Ground
   - player
+  - enemy
   layers:
   - Default
   - TransparentFX
