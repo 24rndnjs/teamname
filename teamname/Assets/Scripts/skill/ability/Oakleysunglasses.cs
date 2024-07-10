@@ -6,11 +6,36 @@ using UnityEngine.SceneManagement;
 
 public class Oakleysunglasses : MonoBehaviour
 {
-    private float maxtime = 10.0f;
+    private float maxtime = 13.0f;
+    int a = 1;
+    ButtonManager skillcount;
+    [SerializeField]
+    Text timetext;//X
 
     float time;
 
     public bool isplay = false;
+
+    private void Start()
+    {
+    }
+    void Update()
+    {
+        skillcount = GameObject.FindObjectOfType<ButtonManager>();
+
+        if (skillcount.buttoncount[0] == a)
+        {
+            Debug.Log("asdfasf");
+            ++a;
+            maxtime -= 1;
+        }
+        if (isplay == false && a > 1) 
+        {
+            Debug.Log("skill");
+            StartTimer();
+        }
+    }
+
 
     public void StartTimer()
     {
@@ -23,17 +48,10 @@ public class Oakleysunglasses : MonoBehaviour
         while (time > 0.1f)
         {
             time -= 0.1f;
+            timetext.text = time.ToString("0.0");//X
             yield return new WaitForSeconds(0.1f);
         }
         time = maxtime;
         isplay = false;
-    }
-    void Update()
-    {
-        if (isplay == false)
-        {
-            Debug.Log("skill");
-            StartTimer();
-        }
     }
 }
