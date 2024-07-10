@@ -28,7 +28,7 @@ public class minhug : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             Debug.Log("Player entered trigger zone.");
             if (Minhug != null)
@@ -41,7 +41,7 @@ public class minhug : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {   
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             Debug.Log("Player exited trigger zone.");
             if (Minhug != null)
