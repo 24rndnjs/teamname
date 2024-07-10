@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Oakleysunglasses : MonoBehaviour
 {
-    private float maxtime = 13.0f;
-    int a = 1;
-    ButtonManager skillcount;
     [SerializeField]
     Text timetext;//X
+
+    private float maxtime = 13.0f;
+
+    int skillpoint = 1;
+
+    private Database playerData;
+    ButtonManager skillcount;
 
     float time;
 
@@ -23,15 +27,17 @@ public class Oakleysunglasses : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[0] == a)
+        if (skillcount.buttoncount[10] == skillpoint)
         {
-            Debug.Log("asdfasf");
-            ++a;
+            ++skillpoint;
             maxtime -= 1;
+            if (skillpoint == 2)
+                playerData.attack += 30;
+            else
+                playerData.attack += 5;
         }
-        if (isplay == false && a > 1) 
+        if (isplay == false && skillpoint > 1)
         {
-            Debug.Log("skill");
             StartTimer();
         }
     }

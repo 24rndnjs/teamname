@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,17 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
 
+    public EnenmyDatabase enenmy;
+    public int health = 100;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // 충돌한 객체가 'Enemy' 태그를 가지고 있는지 확인
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            
+        }
+    }
     void Start()
     {
         animator = GetComponent<Animator>();
