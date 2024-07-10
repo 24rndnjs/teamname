@@ -42996,7 +42996,7 @@ MonoBehaviour:
   health: 100
   moveSpeed: 10
   attack: 10
-  paper: {fileID: 0}
+  paper: {fileID: 6873270439452969196, guid: 3fccb9271f7eaec42a30c8172d9b1357, type: 3}
   spawnRange: {fileID: 1313137766}
   playerPos: {fileID: 1341883814}
   player: {fileID: 0}
