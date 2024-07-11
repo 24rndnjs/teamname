@@ -14,20 +14,23 @@ public class Boss_Goat : MonoBehaviour
     public GameObject spawnRange;
     public Transform playerPos;
     public Database player;
-
+    public EnenmyDatabase eeee;
     private int patternNum;
     private bool immortal = false;
     private BoxCollider2D range;
     private Rigidbody2D rigid;
+    private Animator animator; // Animator 컴포넌트 추가
 
     void Start()
     {
         patternNum = 0;
         range = spawnRange.GetComponent<BoxCollider2D>();
         rigid = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); // Animator 초기화
 
         StartCoroutine(Pattern());
     }
+
     IEnumerator Pattern()
     {
         while (true)
@@ -57,10 +60,12 @@ public class Boss_Goat : MonoBehaviour
             patternNum %= 4;
         }
     }
+
     void Pattern1()
     {
         StartCoroutine(Slow());
     }
+
     IEnumerator Slow()
     {
         Debug.Log("Slow");
@@ -75,6 +80,7 @@ public class Boss_Goat : MonoBehaviour
 
         yield break;
     }
+
     void Pattern2()
     {
         StartCoroutine(Joint());
@@ -91,13 +97,14 @@ public class Boss_Goat : MonoBehaviour
             yield break;
         }
     }
+
     void Pattern3()
     {
         StartCoroutine(Dash());
 
         IEnumerator Dash()
         {
-            for(int i = 0; i < 3; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 Vector2 velocity = playerPos.transform.position - rigid.transform.position;
                 rigid.velocity = velocity.normalized * moveSpeed;
@@ -107,8 +114,8 @@ public class Boss_Goat : MonoBehaviour
             rigid.velocity = new Vector2(0, 0);
             yield break;
         }
-
     }
+
     void Pattern4()
     {
         StartCoroutine(IMMORTAL());
@@ -131,5 +138,27 @@ public class Boss_Goat : MonoBehaviour
                 StartCoroutine(Slow());
             }
         }
+        if(collision.CompareTag("kal"))
+        {
+            TakeDamage();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        if (!immortal)
+        {
+            eeee.hp -= player.ATK;
+            if (eeee.hp <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    void Die()
+    {
+        animator.SetBool("isdie", true); // isdie 파라미터를 true로 설정
+        // 추가로 죽을 때 필요한 로직을 이곳에 추가
     }
 }

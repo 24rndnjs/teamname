@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6522538832279282383}
   - component: {fileID: 6522538832279282382}
   - component: {fileID: -5263025628438562691}
+  - component: {fileID: 4880346088386969387}
   m_Layer: 0
   m_Name: ghoat
   m_TagString: enemy
@@ -103,6 +104,7 @@ MonoBehaviour:
   currenthp: 0
   space: 100
   closestPlayer: {fileID: 0}
+  player: {fileID: 11400000, guid: 9f9ccc446e481b44384ceb3e7d1bbdcc, type: 2}
 --- !u!95 &6522538832279282382
 Animator:
   serializedVersion: 4
@@ -149,3 +151,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &4880346088386969387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6522538832279282381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00f680be5c93494a8c18cedfbf8bc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  moveSpeed: 10
+  attack: 10
+  spawnRange: {fileID: 0}
+  playerPos: {fileID: 0}
+  player: {fileID: 11400000, guid: 9f9ccc446e481b44384ceb3e7d1bbdcc, type: 2}
