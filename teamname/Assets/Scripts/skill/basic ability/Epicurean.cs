@@ -5,10 +5,17 @@ using UnityEngine;
 public class Epicurean : Skill
 {
     private Database playerData;
+    ButtonManager skillcount;
+    int skillpoint = 1;
 
-
-    public void Select()
+    void Update()
     {
-        playerData.Vamp += 0.1f;
+        skillcount = GameObject.FindObjectOfType<ButtonManager>();
+        if (skillcount.buttoncount[8] == skillpoint)
+        {
+          playerData.Vamp += 0.1f;
+        }
     }
+
+    
 }

@@ -7,11 +7,17 @@ using UnityEngine;
 public class efficiency : Skill
 {
     private Database playerData;
+    ButtonManager skillcount;
+    int skillpoint = 1;
 
-
-    public void Select()
+    void Update()
     {
-        LvUP();
+        skillcount = GameObject.FindObjectOfType<ButtonManager>();
+        if (skillcount.buttoncount[6] == skillpoint)
+        {
+            LvUP();
+            ++skillpoint;
+        }
     }
 
     private void LvUP()

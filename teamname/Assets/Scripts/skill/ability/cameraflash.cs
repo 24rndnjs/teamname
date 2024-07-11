@@ -26,7 +26,7 @@ public class cameraflash : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[11] == skillpoint)
+        if (skillcount.buttoncount[10] == skillpoint)
         {
             ++skillpoint;
             maxtime -= 0.5f;

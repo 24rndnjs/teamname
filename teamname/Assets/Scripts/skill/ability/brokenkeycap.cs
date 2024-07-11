@@ -13,7 +13,6 @@ public class brokenkeycap : MonoBehaviour
     private Database playerData;
     ButtonManager skillcount;
 
-    float time;
 
     public bool isplay = false;
 
@@ -24,7 +23,7 @@ public class brokenkeycap : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[12] == skillpoint)
+        if (skillcount.buttoncount[11] == skillpoint)
         {
             ++skillpoint;
             if (skillpoint == 2)

@@ -22,7 +22,7 @@ public class hyogoaaaum : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[15] == skillpoint)
+        if (skillcount.buttoncount[14] == skillpoint)
         {
             ++skillpoint;
             maxtime -= 1;

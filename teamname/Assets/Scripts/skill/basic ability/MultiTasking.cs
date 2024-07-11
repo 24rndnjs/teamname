@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class MultiTasking : Skill
 {
+
     private Database playerData;
+    ButtonManager skillcount;
+    int skillpoint = 1;
 
-
-    public void Select()
+    void Update()
     {
-        playerData.attack += 0.75f;
-        playerData.attackSpeed += 0.75f;
+        skillcount = GameObject.FindObjectOfType<ButtonManager>();
+        if (skillcount.buttoncount[2] == skillpoint)
+        {
+            playerData.attack += 0.75f;
+            playerData.attackSpeed += 0.75f;
+        }
     }
 }

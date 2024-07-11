@@ -22,7 +22,7 @@ public class emptyfolder : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[13] == skillpoint)
+        if (skillcount.buttoncount[12] == skillpoint)
         {
             ++skillpoint;
             maxtime -= 1;

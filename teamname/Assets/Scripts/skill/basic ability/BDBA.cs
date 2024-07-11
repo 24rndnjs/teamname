@@ -5,10 +5,16 @@ using UnityEngine;
 public class BDBA : Skill
 {
     private Database playerData;
+    ButtonManager skillcount;
+    int skillpoint = 1;
 
-
-    public void Select()
+    void Update()
     {
-        playerData.DmgMultiplier += 0.5f;
+        skillcount = GameObject.FindObjectOfType<ButtonManager>();
+        if (skillcount.buttoncount[7] == skillpoint)
+        {
+             playerData.DmgMultiplier += 0.5f;
+        }
     }
+    
 }

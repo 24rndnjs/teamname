@@ -21,7 +21,7 @@ public class framemovement : MonoBehaviour
     {
         skillcount = GameObject.FindObjectOfType<ButtonManager>();
 
-        if (skillcount.buttoncount[16] == skillpoint)
+        if (skillcount.buttoncount[15] == skillpoint)
         {
             ++skillpoint;
             maxtime -= 1;
