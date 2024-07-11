@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class ButtonManager : MonoBehaviour
         {
             Destroy(chooicebuttons[i].gameObject); // 모든 버튼 제거.
         }
+        SceneManager.LoadScene("Stage1");
     }
 
     public void OnClickSkillPerk()

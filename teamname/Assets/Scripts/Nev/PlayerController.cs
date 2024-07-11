@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -95,9 +95,7 @@ public class PlayerController : MonoBehaviour
             curmana += mana;
             if (curmana >= maxmana)
             {
-             
-                    //SceneManager.LoadScene(112);
-                
+                SceneManager.LoadScene("112");
                 curmana = 0;
                 maxmana *= 1.1f;
                 manaslider.maxValue = maxmana; // 마나 슬라이더의 최대값 업데이트
