@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Slider healthSlider;
     public float curHealth = 100; //* 현재 체력
     public float maxHealth; //* 최대 체력
-
+    public Database player;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (inputVec.x < 0)
             {
-                spriteRenderer.flipX = false;
+                spriteRenderer.flipX = false;   
             }
         }
     }
@@ -78,5 +78,6 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Player died.");
             }
         }
+        
     }
 }

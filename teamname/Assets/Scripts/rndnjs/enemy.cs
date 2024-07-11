@@ -10,6 +10,9 @@ public class enemy : MonoBehaviour
     public float space;
     public GameObject closestPlayer;
     private SpriteRenderer spriteRenderer;
+    public Database player;
+
+    private bool isHitBySword = false; // 검에 맞았는지 여부
 
     void Start()
     {
@@ -74,10 +77,13 @@ public class enemy : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(space, space, space));
     }
 
-    public void Takedamage(int damage)
+    public void Takedamage()
     {
-        int actualdamage = Mathf.Max(damage - enemydata.defense, 0);
-        currenthp -= actualdamage;
+        if (isHitBySword) return; // 이미 검에 맞았다면 무시
+
+        currenthp -= player.ATK; // 현재 체력 감소
+        isHitBySword = true; // 검에 맞았음을 표시
+
         if (currenthp <= 0)
         {
             Die();
@@ -98,6 +104,10 @@ public class enemy : MonoBehaviour
             {
                 playerDatabase.health -= (enemydata.attack - playerDatabase.DEF);
             }
+        }
+        if (collision.CompareTag("kal"))
+        {
+            Takedamage();
         }
     }
 }
