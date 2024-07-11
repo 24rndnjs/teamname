@@ -12,6 +12,7 @@ public class cameraflash : MonoBehaviour
     int skillpoint = 1;
 
     private Database playerData;//적 이속으로 바꾸기
+    private EnenmyDatabase enemydata;//적 이속으로 바꾸기
     ButtonManager skillcount;
 
     float time;
