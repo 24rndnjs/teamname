@@ -18,7 +18,7 @@ public class BtnManager : MonoBehaviour
 
     public void creditBtnOnclick()
     {
-        SceneManager.LoadScene("Credit");
+        SceneManager.LoadScene("Ending Credit");
     }
 
     public void quitBtnClick()
