@@ -7,9 +7,10 @@ public class slate : MonoBehaviour
     public Database player;
     public GameObject game;
     public AudioClip tickSound; // 딱 소리 나는 효과음
-    private AudioSource audioSource;
     public junjigdatabase junjig;
+    private AudioSource audioSource;
     private bool isTriggered = false; // 충돌 처리 플래그
+    int speed;
 
     void Start()
     {
@@ -31,7 +32,6 @@ public class slate : MonoBehaviour
 
     IEnumerator ReduceEnemySpeed()
     {
-        // 화면 내의 모든 적을 찾음
         enemy[] enemies = FindObjectsOfType<enemy>();
 
         // 원래 속도 저장
@@ -43,6 +43,11 @@ public class slate : MonoBehaviour
             {
                 originalSpeeds[enemy] = enemy.enemydata.speed;
                 enemy.enemydata.speed *= 0.1f; // 이동 속도를 -90%로 줄임
+                Debug.Log($"Slowed down enemy {enemy.name} to {enemy.enemydata.speed}");
+            }
+            else
+            {
+                Debug.Log("Found a null enemy.");
             }
         }
 
@@ -55,6 +60,11 @@ public class slate : MonoBehaviour
             if (entry.Key != null)
             {
                 entry.Key.enemydata.speed = entry.Value;
+                Debug.Log($"Restored enemy {entry.Key.name} speed to {entry.Value}");
+            }
+            else
+            {
+                Debug.Log("Found a null enemy during restore.");
             }
         }
     }

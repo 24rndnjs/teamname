@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: inline
   m_EditorClassIdentifier: 
   name: 
-  speed: 8
+  speed: 5
   defense: 2
   hp: 150
   attack: 17

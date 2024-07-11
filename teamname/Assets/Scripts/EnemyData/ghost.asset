@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ghost
   m_EditorClassIdentifier: 
   name: 
-  speed: 8
+  speed: 6
   defense: 4
   hp: 130
   attack: 17

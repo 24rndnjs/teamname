@@ -817,6 +817,26 @@ PrefabInstance:
       value: slate
       objectReference: {fileID: 0}
     - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
+      propertyPath: a
+      value: 
+      objectReference: {fileID: 11400000, guid: a851d869e216d454ea787ac31444c25c, type: 2}
+    - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 11400000, guid: 8860e993e60937342802bbdec9bcb62a, type: 2}
+    - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
+      propertyPath: c
+      value: 
+      objectReference: {fileID: 11400000, guid: 5abf373fe672be24ca0989daded0abd8, type: 2}
+    - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
+      propertyPath: d
+      value: 
+      objectReference: {fileID: 11400000, guid: e5b7d708dc65155468040761be591eef, type: 2}
+    - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
+      propertyPath: e
+      value: 
+      objectReference: {fileID: 11400000, guid: 247fc31c990b03044b09a82db975486d, type: 2}
+    - target: {fileID: 5677208409173624049, guid: 352979b8637b1fb409338f84805b1e15, type: 3}
       propertyPath: game
       value: 
       objectReference: {fileID: 4096002284660320940}

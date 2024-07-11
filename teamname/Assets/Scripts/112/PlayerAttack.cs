@@ -14,35 +14,27 @@ public class PlayerAttack : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
     void Update()
     {
-        if (isplay == false)
+        if (!isplay)
         {
-            animator.SetBool("attackstart", true);
-            StartTimer();
+            isplay = true;
+            StartCoroutine(PlayAttackAnimation());
         }
-
     }
 
-
-    public void StartTimer()
+    private IEnumerator PlayAttackAnimation()
     {
-        StartCoroutine(CoolTime());
-        isplay = true;
-
+        animator.SetBool("attackstart", true);
+        yield return new WaitForSeconds(1f); // 1초 동안 애니메이션 재생
         animator.SetBool("attackstart", false);
-        
-      
-        
+        yield return StartCoroutine(CoolTime()); // 5초 쿨타임
     }
 
-    public IEnumerator CoolTime()
+    private IEnumerator CoolTime()
     {
-        
         yield return new WaitForSeconds(5f);
         isplay = false;
-        Debug.Log("11");
+        Debug.Log("Cooldown finished");
     }
-
 }
