@@ -14,7 +14,7 @@ public class jacketArtifect : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             player.moveSpeed *= 1.1f;
             Destroy(game);

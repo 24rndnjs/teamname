@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameDirector : MonoBehaviour
+public class GauageBar : MonoBehaviour
 {
-    public static GameDirector Instance;
+    public static GauageBar Instance;
 
     public int Exp;
     public int level;

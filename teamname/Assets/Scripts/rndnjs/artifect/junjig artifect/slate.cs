@@ -76,6 +76,7 @@ public class slate : MonoBehaviour
             isTriggered = true; // 플래그 설정
             junjig.film += 1;
             StartCoroutine(PlaySoundAndDestroy());
+            Destroy(game);
         }
     }
 

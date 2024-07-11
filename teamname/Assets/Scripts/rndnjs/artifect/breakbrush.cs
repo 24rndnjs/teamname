@@ -14,9 +14,10 @@ public class breakbrush : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             player.CritChance *= 1.15f;
+            Destroy(game);
         }
     }
 }

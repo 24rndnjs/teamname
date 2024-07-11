@@ -23,7 +23,7 @@ public class badmilk : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             Destroy(game);
             Invoke("mystert", 2f);

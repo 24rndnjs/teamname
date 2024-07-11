@@ -13,9 +13,10 @@ public class savefile : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             enemy.hp /= 1.05f;
+            Destroy(game);
         }
     }
 }

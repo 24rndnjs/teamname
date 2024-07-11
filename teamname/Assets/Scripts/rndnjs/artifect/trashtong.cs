@@ -20,7 +20,7 @@ public class trashtong : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player"))
         {
             Destroy(collision.gameObject); // 적 오브젝트 파괴
             killCount++; // 적 처치 횟수 증가

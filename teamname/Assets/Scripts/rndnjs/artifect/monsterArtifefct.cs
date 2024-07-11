@@ -13,7 +13,7 @@ public class monsterArtifefct : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             player.HP *= 1.1f;
             Destroy(game);

@@ -22,9 +22,9 @@ public class peetonchite : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Player"))
         {
-            Destroy(collision.gameObject); // 적 오브젝트 파괴
+            Destroy(game); // 적 오브젝트 파괴
             IncreaseMoveSpeed(); // 이동 속도 증가
         }
     }

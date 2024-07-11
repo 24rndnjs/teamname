@@ -9,7 +9,7 @@ public class MonsterSpawner : MonoBehaviour
     public GameObject specialMonster; // 10분 뒤에 소환할 특별 몬스터
     public float spawnRadiusX = 50f; // X축 소환 범위
     public float spawnRadiusY = 50f; // Y축 소환 범위
-    public float spawnInterval = 5f; // 소환 간격
+    public float spawnInterval = 2f; // 소환 간격
 
     void Start()
     {

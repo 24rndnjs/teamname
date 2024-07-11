@@ -18,7 +18,7 @@ public class GPT : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             player.ATK *= (player.HP / player.DEF);
             Destroy(game);

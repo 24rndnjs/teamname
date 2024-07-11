@@ -16,6 +16,7 @@ public class moonster500 : MonoBehaviour
             junjig.film += 1;
             junjig.game += 1;
             player.CritChance *= 1.4f;
+            Destroy(game);
         }
     }
 }

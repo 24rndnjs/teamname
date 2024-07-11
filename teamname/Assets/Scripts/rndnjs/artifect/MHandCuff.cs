@@ -18,10 +18,11 @@ public class MHandCuff : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             player.MoveSpeed /= 1.25f;
             player.ATK *= 1.5f;
+            Destroy(game);
         }
     }
 }

@@ -13,7 +13,7 @@ public class pinus : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player"))
+        if(collision.CompareTag("Player"))
         {
             float healAmount = player.health * 0.5f;
 
