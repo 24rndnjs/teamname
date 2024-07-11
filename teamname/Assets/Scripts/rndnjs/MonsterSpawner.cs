@@ -6,6 +6,7 @@ public class MonsterSpawner : MonoBehaviour
 {
     public GameObject player; // 플레이어 오브젝트
     public GameObject[] monsters; // 소환할 몬스터 프리팹 배열
+    public GameObject specialMonster; // 10분 뒤에 소환할 특별 몬스터
     public float spawnRadiusX = 50f; // X축 소환 범위
     public float spawnRadiusY = 50f; // Y축 소환 범위
     public float spawnInterval = 5f; // 소환 간격
@@ -19,6 +20,7 @@ public class MonsterSpawner : MonoBehaviour
         }
 
         StartCoroutine(SpawnMonsters());
+        StartCoroutine(SpawnSpecialMonster());
     }
 
     IEnumerator SpawnMonsters()
@@ -37,6 +39,18 @@ public class MonsterSpawner : MonoBehaviour
             // 소환 간격 대기
             yield return new WaitForSeconds(spawnInterval);
         }
+    }
+
+    IEnumerator SpawnSpecialMonster()
+    {
+        // 10분 대기
+        yield return new WaitForSeconds(600f); // 600초 = 10분
+
+        // 플레이어 주변 랜덤 위치 생성
+        Vector3 spawnPosition = GetRandomSpawnPosition();
+
+        // 특별 몬스터 소환
+        Instantiate(specialMonster, spawnPosition, Quaternion.identity);
     }
 
     Vector3 GetRandomSpawnPosition()
