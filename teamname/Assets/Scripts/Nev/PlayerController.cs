@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
             if (curHealth <= 0)
             {
                 Debug.Log("Player died.");
+
             }
         }
         if (other.gameObject.CompareTag("mana"))

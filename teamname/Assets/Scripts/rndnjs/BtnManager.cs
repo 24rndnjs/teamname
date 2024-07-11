@@ -28,7 +28,7 @@ public class BtnManager : MonoBehaviour
 
     public void firststageBtn()
     {
-        SceneManager.LoadScene("1stage");
+        SceneManager.LoadScene("Stage1");
     }
 
     public void secondstageBtn()
@@ -66,7 +66,10 @@ public class BtnManager : MonoBehaviour
             Debug.Log("Stage 4 is locked. Clear Stage 3 first.");
         }
     }
-
+    public void goat()
+    {
+        SceneManager.LoadScene("goat");
+    }
     void InitializeStageButtons()
     {
         

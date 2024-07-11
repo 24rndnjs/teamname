@@ -107,7 +107,7 @@ public class enemy : MonoBehaviour
         }
         if (collision.CompareTag("kal"))
         {
-            Takedamage();
+            Destroy(gameObject);
         }
     }
 }
