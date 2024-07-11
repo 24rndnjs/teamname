@@ -4695,9 +4695,13 @@ MonoBehaviour:
   speed: 4
   inputVec: {x: 0, y: 0}
   healthSlider: {fileID: 2128200348}
+  manaslider: {fileID: 580280512}
+  maxmana: 100
+  curmana: 0
   curHealth: 100
   maxHealth: 0
   player: {fileID: 11400000, guid: 9f9ccc446e481b44384ceb3e7d1bbdcc, type: 2}
+  mana: 10
 --- !u!50 &417433061
 Rigidbody2D:
   serializedVersion: 4
@@ -9088,7 +9092,7 @@ GameObject:
   - component: {fileID: 580280511}
   - component: {fileID: 580280512}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9111,9 +9115,9 @@ RectTransform:
   m_Father: {fileID: 1712518616}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 158.2}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 4, y: -10}
   m_SizeDelta: {x: 867.6, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580280512
@@ -9161,7 +9165,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -9224,7 +9228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 854159450}
-  - component: {fileID: 854159449}
+  - component: {fileID: 854159451}
   m_Layer: 0
   m_Name: mana
   m_TagString: Untagged
@@ -9232,7 +9236,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &854159449
+--- !u!4 &854159450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854159448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3029692, y: 6.1274524, z: 550.72986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854159451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9248,24 +9267,9 @@ MonoBehaviour:
   monsters:
   - {fileID: 1138875676744315506, guid: 31ba21311c64226438f687123128abd6, type: 3}
   specialMonster: {fileID: 0}
-  spawnRadiusX: 5
-  spawnRadiusY: 5
+  spawnRadiusX: 10
+  spawnRadiusY: 10
   spawnInterval: 2
---- !u!4 &854159450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854159448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3029692, y: 6.1274524, z: 550.72986}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043557000
 GameObject:
   m_ObjectHideFlags: 0
