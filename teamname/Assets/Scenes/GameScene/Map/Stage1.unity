@@ -13412,6 +13412,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209113155}
   m_CullTransparentMesh: 1
+--- !u!1 &1338627952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338627954}
+  - component: {fileID: 1338627953}
+  m_Layer: 0
+  m_Name: artifeturespawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1338627953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338627952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31909ded68d236345be851840bb3c803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 417433058}
+  artifect:
+  - {fileID: 304421926132919721, guid: 83be3e5cfaa1e3c44880a5b80659a427, type: 3}
+  - {fileID: 4592749903197269331, guid: 692f5f4c2733f764db772228fc8fa8b5, type: 3}
+  - {fileID: 4660957015047463886, guid: 9c3f6f2831dcfb740b39bb0fe45f7f9e, type: 3}
+  - {fileID: 6345250288948745398, guid: c8064045957608147b118dbc940063ae, type: 3}
+  - {fileID: 7131834724239700701, guid: 5c26fde602c8eae4ab03f0f1736b0889, type: 3}
+  - {fileID: 3805425286090371734, guid: 677d6e9e1f9952c418198b7395978d40, type: 3}
+  - {fileID: 6389709402681004676, guid: 01edd2c964846af4889deac6a16ecc8b, type: 3}
+  - {fileID: 6444802653165799107, guid: 1647a5f9931113f4fbcecc45ea3e4028, type: 3}
+  - {fileID: 7061206889882488440, guid: 0b42505686cbe0c42a9de2f40368707c, type: 3}
+  - {fileID: 3516132525408831581, guid: 83a7f54cf18d9c0408488d45e58cb77a, type: 3}
+  spawnRadiusX: 50
+  spawnRadiusY: 50
+  spawnInterval: 25
+--- !u!4 &1338627954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338627952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.45547736, y: 0.6295981, z: 134.28418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1382729006
 GameObject:
   m_ObjectHideFlags: 0
