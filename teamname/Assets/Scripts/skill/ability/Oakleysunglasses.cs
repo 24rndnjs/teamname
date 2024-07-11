@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Oakleysunglasses : MonoBehaviour
 {
-    [SerializeField]
-    Text timetext;//X
-
     private float maxtime = 13.0f;
 
     int skillpoint = 1;
@@ -54,7 +51,6 @@ public class Oakleysunglasses : MonoBehaviour
         while (time > 0.1f)
         {
             time -= 0.1f;
-            timetext.text = time.ToString("0.0");//X
             yield return new WaitForSeconds(0.1f);
         }
         time = maxtime;
