@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
         manaslider.maxValue = maxmana; // 마나 슬라이더 최대값 설정
         manaslider.value = curmana; // 초기 마나 슬라이더에 반영
-
+         
         if (animator == null)
         {
             Debug.LogWarning("Animator component is missing from the Player game object.");
