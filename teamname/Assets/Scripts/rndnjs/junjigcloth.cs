@@ -50,6 +50,8 @@ public class junjigcloth : MonoBehaviour
         }
     }
 
+    //
+
     void ShowSprite(Sprite sprite)
     {
         spriteRenderer.sprite = sprite;
